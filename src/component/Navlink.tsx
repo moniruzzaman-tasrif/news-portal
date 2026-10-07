@@ -13,12 +13,14 @@ const Navlink = async() => {
   const data = await res.json()
   const newsLinkData = data.data;
  const newsLinkFilter = newsLinkData.filter((itemData:newsLinkDataType) => itemData.scrapable);
- console.log(newsLinkFilter);
   return (
     <div className=" flex items-center justify-center gap-4 my-4">
+      <Link className="hover:text-red-700" href="/">
+        হোম
+      </Link>
       {newsLinkFilter.map((item: newsLinkDataType) => (
         <div key={item.topicId} className=" hover:text-red-700">
-          <Link href="/">  {item.title}</Link>
+          <Link href={`/linkNav/${item.slug}`}> {item.title}</Link>
         </div>
       ))}
     </div>

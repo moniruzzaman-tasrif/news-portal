@@ -2,6 +2,9 @@
 import {  Noto_Sans_Bengali  } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/navbar";
+import { ToastContainer } from "react-toastify";
+import Navlink from "@/component/Navlink";
+import MarqueePage from "@/component/Marquee";
 
 
 
@@ -23,8 +26,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
+        <Navlink></Navlink>
 
+        <MarqueePage></MarqueePage>
         <main> {children}</main>
+        <ToastContainer />
       </body>
     </html>
   );
